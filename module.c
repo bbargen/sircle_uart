@@ -17,10 +17,10 @@ MODULE_AUTHOR("Adriano Marto Reis");
 MODULE_DESCRIPTION("Software-UART for Raspberry Pi");
 MODULE_VERSION("0.1");
 
-static int gpio_tx = 24;
+static int gpio_tx = 23;
 module_param(gpio_tx, int, 0);
 
-static int gpio_rx = 23;
+static int gpio_rx = 24;
 module_param(gpio_rx, int, 0);
 
 // Module prototypes.
@@ -119,9 +119,9 @@ static int __init soft_uart_init(void)
   soft_uart_driver->type                  = TTY_DRIVER_TYPE_SERIAL;
   soft_uart_driver->subtype               = SERIAL_TYPE_NORMAL;
   soft_uart_driver->init_termios          = tty_std_termios;
-  soft_uart_driver->init_termios.c_ispeed = 4800;
-  soft_uart_driver->init_termios.c_ospeed = 4800;
-  soft_uart_driver->init_termios.c_cflag  = B4800 | CREAD | CS8 | CLOCAL;
+  soft_uart_driver->init_termios.c_ispeed = 1200;
+  soft_uart_driver->init_termios.c_ospeed = 1200;
+  soft_uart_driver->init_termios.c_cflag  = B1200 | CREAD | CS8 | CLOCAL;
 
   // Sets the callbacks for the driver.
   tty_set_operations(soft_uart_driver, &soft_uart_operations);

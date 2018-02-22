@@ -1,2 +1,15 @@
 minicom -b 1200 -D /dev/ttySOFT0
-
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo "**************************************************************************"
+echo "**    If CHIP Pro was rebooted you must run ~/sircle_uart/restart.sh    **"
+echo "**                   in order to connect to it again!                   **"
+echo "**************************************************************************"
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""

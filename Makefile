@@ -1,9 +1,9 @@
-obj-m += sircle_uart.o
+obj-m += soft_uart.o
 
-sircle_uart-objs := module.o raspberry_soft_uart.o queue.o
+soft_uart-objs := module.o raspberry_soft_uart.o queue.o
 
 RELEASE = $(shell uname -r)
-LINUX = /root/raspberry/linux
+LINUX = ../linux
 
 all:
 	$(MAKE) -C $(LINUX) M=$(PWD) modules
@@ -12,6 +12,6 @@ clean:
 	$(MAKE) -C $(LINUX) M=$(PWD) clean
 
 install:
-	install -m 644 -c sircle_uart.ko /lib/modules/$(RELEASE)
-	depmod
+	sudo install -m 644 -c soft_uart.ko /lib/modules/$(RELEASE)
+	sudo depmod
 
